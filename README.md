@@ -48,3 +48,6 @@
 &emsp;&emsp;开机自启项存储在：
 计算机\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
 值项名称为 TimePresenter，数据为程序路径。
+## 下载已编译的可执行程序
+- [GitHub](https://github.com/MCjiaozi/TimePresenter/releases)
+- [发布网站](https://www.mcjiaozi.com/TimePresenter/)
