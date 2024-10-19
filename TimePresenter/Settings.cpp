@@ -75,9 +75,19 @@ void Settings::DoDataExchange(CDataExchange* pDX)
 	GetDlgItem(IDC_STATIC_SETTINGS_ADVANCE)->SetFont(f2);
 	GetDlgItem(IDC_STATIC_STYLE_FF)->SetFont(f2);
 	GetDlgItem(IDC_COMBO_STYLE_FF)->SetFont(f2);
+	GetDlgItem(IDC_CHECK_TOPMOST)->SetFont(f2);
 
 	if (CheckAutoRun())((CButton*)GetDlgItem(IDC_CHECK_AUTORUN))->SetCheck(1);
 	else ((CButton*)GetDlgItem(IDC_CHECK_AUTORUN))->SetCheck(0);
+
+	CString GetIfTopMost = GetConfig(_T("Settings"), _T("IfTopMost"));
+	if (GetIfTopMost != _T("FALSE")) {
+		((CButton*)GetDlgItem(IDC_CHECK_TOPMOST))->SetCheck(1);
+		WriteConfig(_T("Settings"), _T("IfTopMost"), _T("TRUE"));
+	}
+	else {
+		((CButton*)GetDlgItem(IDC_CHECK_TOPMOST))->SetCheck(0);
+	}
 
 	CString GetFormat = GetConfig(_T("Settings"), _T("Format")), strFormat;
 	if (GetFormat == _T("default") || GetFormat == _T("")) {
@@ -172,6 +182,15 @@ void Settings::ApplySettings()
 {
 	if (((CButton*)GetDlgItem(IDC_CHECK_AUTORUN))->GetCheck() == 1)EnableAutoRun();
 	else DisableAutoRun();
+
+	if (((CButton*)GetDlgItem(IDC_CHECK_TOPMOST))->GetCheck() == 1) {
+		WriteConfig(_T("Settings"), _T("IfTopMost"), _T("TRUE"));
+		pParentDlg->SetTopMost();
+	}
+	else {
+		WriteConfig(_T("Settings"), _T("IfTopMost"), _T("FALSE"));
+		pParentDlg->SetNoTopMost();
+	}
 
 	CString GetFormat, strFormat;
 	GetDlgItem(IDC_COMBO_SETTINGS_FORMAT)->GetWindowText(GetFormat);

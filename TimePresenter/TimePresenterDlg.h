@@ -57,4 +57,6 @@ public:
 	CString Position;
 	int ShiftX = 0;
 	int ShiftY = 0;
+	void SetTopMost();
+	void SetNoTopMost();
 };

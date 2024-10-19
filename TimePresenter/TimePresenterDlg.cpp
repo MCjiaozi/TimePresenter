@@ -248,6 +248,18 @@ void CTimePresenterDlg::ConInit() {
 	if (GetFormat == _T("default") || GetFormat == _T(""))strFormat = _T("HH:MM:SS");
 	else strFormat = GetFormat;
 	WriteConfig(_T("Settings"), _T("Format"), strFormat);
+
+	CString GetIfTopMost = GetConfig(_T("Settings"), _T("IfTopMost"));
+	if (GetIfTopMost != _T("FALSE")) {
+		GetIfTopMost = _T("TRUE");
+		SetTopMost();
+	}
+	else {
+		SetNoTopMost();
+	}
+	WriteConfig(_T("Settings"), _T("IfTopMost"), GetIfTopMost);
+
+
 	strFormat.Replace(_T("YY"), _T("%Y"));
 	strFormat.Replace(_T("mm"), _T("%m"));
 	strFormat.Replace(_T("dd"), _T("%d"));
@@ -376,6 +388,14 @@ void CTimePresenterDlg::SetPosition() {
 		SetWindowPos(NULL, x - ccx + ShiftX, y - ccy + ShiftY, ccx, ccy, NULL);
 		GetDlgItem(IDC_STATIC_TIME)->ModifyStyle(SS_LEFT | SS_CENTER, SS_RIGHT);
 	}
+}
+
+void CTimePresenterDlg::SetTopMost() {
+	SetWindowPos(&wndTopMost, NULL, NULL, NULL, NULL, NULL);
+}
+
+void CTimePresenterDlg::SetNoTopMost() {
+	SetWindowPos(&wndNoTopMost, NULL, NULL, NULL, NULL, NULL);
 }
 
 BOOL CTimePresenterDlg::OnEraseBkgnd(CDC* pDC)

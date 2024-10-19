@@ -42,6 +42,8 @@
 #define IDC_STATIC_SETTINGS_ADVANCE     1042
 #define IDC_STATIC_STYLE_FF             1043
 #define IDC_COMBO_STYLE_FF              1044
+#define IDC_CHECK1                      1045
+#define IDC_CHECK_TOPMOST               1045
 #define IDR_TRAY_EXIT                   32771
 #define IDR_MENU_ABOUT                  32772
 #define ID_32774                        32774
@@ -53,7 +55,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        134
 #define _APS_NEXT_COMMAND_VALUE         32776
-#define _APS_NEXT_CONTROL_VALUE         1045
+#define _APS_NEXT_CONTROL_VALUE         1046
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
