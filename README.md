@@ -41,9 +41,9 @@
 &emsp;&emsp;本程序将配置信息存储在注册表中。具体路径为：  
 计算机\HKEY_CURRENT_USER\Software\TimePresenter\TimePresenter\Settings  
 各值项含义如下：
-| 名称 | FontFamily | FontSize | Format | Position | RGB | ShiftX | ShiftY |
-| :-----| :----- | :----- | :----- | :----- | :----- | :----- | :----- |
-| 含义 | 字体 | 字号 | 格式 | 位置 | 字体颜色 | 坐标 X | 坐标 Y |  
+| 名称 | FontFamily | FontSize | Format | Position | RGB | ShiftX | ShiftY | IfTopMost |
+| :-----| :----- | :----- | :----- | :----- | :----- | :----- | :----- | :----- |
+| 含义 | 字体 | 字号 | 格式 | 位置 | 字体颜色 | 坐标 X | 坐标 Y | 是否置顶 |
 
 &emsp;&emsp;开机自启项存储在：
 计算机\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
